@@ -12,7 +12,7 @@ export default function Navbar(props) {
         <a className="navbar-brand" href="/">
           {props.title}
         </a>
-        <button
+        {/* <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -22,31 +22,89 @@ export default function Navbar(props) {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </button> */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
+            <li className="nav-items">
               <a className="nav-link active" aria-current="page" href="/">
                 {props.head1}
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" style={{color:props.mode === 'dark'?'white':'black'}} href="/">
+              <a
+                className="nav-link"
+                style={{ color: props.mode === "dark" ? "white" : "black" }}
+                href="/"
+              >
                 {props.head2}
               </a>
             </li>
+
+            <li
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }} onClick={props.redChange}
+            >
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <div
+                  style={{
+                    backgroundColor: "Red",
+                    borderRadius: "50%",
+                    width: "20px",
+                    height: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                ></div>
+                <p className="my-2 mx-2 " style={{color:"black"}}>RED</p>
+              </div>
+            </li>
+            <li
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }} onClick={props.blueChange}
+            >
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <div
+                  style={{
+                    backgroundColor: "Blue",
+                    borderRadius: "50%",
+                    width: "20px",
+                    height: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                ></div>
+                <p className="my-2 mx-2" style={{color:"black"}}>BLUE</p>
+              </div>
+            </li>
+            <li
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "20px",
+              }} onClick={props.greenChange}
+            >
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <div
+                  style={{
+                    backgroundColor: "Green",
+                    borderRadius: "50%",
+                    width: "20px",
+                    height: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                ></div>
+                <p className="my-2 mx-2" style={{color:"black"}}>GREEN</p>
+              </div>
+            </li>
           </ul>
-          {/* <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form> */}
+
           <div
             className={`form-check form-switch text-${alagMode} d-flex`}
             style={{ flex: "none" }}

@@ -6,10 +6,12 @@ export default function TextForm(props) {
       let newtext = text.toUpperCase();
       setText(newtext);
       setCase("Convert to lowercase");
+      props.showAlert("The text is converted to UPPERCASE", "success");
     } else if (case1 === "Convert to lowercase") {
       let newtext = text.toLowerCase();
       setText(newtext);
       setCase("Convert to uppercase");
+      props.showAlert("The text is converted to LOWERCASE", "success");
     }
   };
 
@@ -26,7 +28,7 @@ export default function TextForm(props) {
   const [text, setText] = useState("");
   return (
     <>
-      <div style={{color: props.mode === 'dark' ? 'white' : 'black'}}>
+      <div>
         <div className="container">
           <h1>{props.heading}</h1>
           <form>
