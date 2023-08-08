@@ -1,9 +1,10 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/textform";
-//import About from "./components/About";
+import About from "./components/About";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -36,7 +37,7 @@ function App() {
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
       showAlert("Light mode is enabled", "success");
-      document.title = "UDIT - Light Mode"
+      document.title = "UDIT - Light Mode";
       // setInterval(() => {
       //   document.title = "Install Amplesavings Now"
       // }, 2000);
@@ -49,30 +50,51 @@ function App() {
         "rgb(" + [33, 37, 41].join(",") + ")";
       document.body.style.color = "white";
       showAlert("Dark mode is enabled", "success");
-      document.title = "UDIT - Dark Mode"
+      document.title = "UDIT - Dark Mode";
     }
   };
   return (
     <>
-      <Navbar
-        title="TextUtils"
-        head1="Home"
-        head2="About"
-        mode={mode}
-        toggleMode={toggleMode}
-        redChange={redChange}
-        blueChange={blueChange}
-        greenChange={greenChange}
-      />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        <TextForm
-          heading="Enter Text to analyze below"
+      <BrowserRouter>
+        <Navbar
+          title="TextUtils"
+          head1="Home"
+          head2="About"
           mode={mode}
-          showAlert={showAlert}
+          toggleMode={toggleMode}
+          redChange={redChange}
+          blueChange={blueChange}
+          greenChange={greenChange}
         />
-      </div>
-      {/* <About /> */}
+        <Alert alert={alert} />
+        <div className="container my-4">
+          <Routes>
+            <Route
+              exact
+              path="/home"
+              element={
+                <TextForm
+                  heading="Enter Text to analyze below"
+                  mode={mode}
+                  showAlert={showAlert}
+                />
+              }
+            ></Route>
+            <Route exact path="/about" element={<About />}></Route>
+            <Route
+              exact
+              path="/"
+              element={
+                <TextForm
+                  heading="Enter Text to analyze below"
+                  mode={mode}
+                  showAlert={showAlert}
+                />
+              }
+            ></Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
     </>
   );
 }

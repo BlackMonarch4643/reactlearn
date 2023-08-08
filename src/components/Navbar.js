@@ -1,5 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   let alagMode = props.mode === "dark" ? "light" : "dark";
@@ -9,35 +10,24 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           {props.title}
-        </a>
-        {/* <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button> */}
+        </Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-items">
-              <a className="nav-link active" aria-current="page" href="/">
+              <Link className="nav-link active" aria-current="page" to="/home">
                 {props.head1}
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link"
                 style={{ color: props.mode === "dark" ? "white" : "black" }}
-                href="/"
+                to="/about"
               >
                 {props.head2}
-              </a>
+              </Link>
             </li>
 
             <li
@@ -45,7 +35,8 @@ export default function Navbar(props) {
                 display: "flex",
                 alignItems: "center",
                 marginLeft: "20px",
-              }} onClick={props.redChange}
+              }}
+              onClick={props.redChange}
             >
               <div style={{ display: "flex", alignItems: "center" }}>
                 <div
@@ -58,7 +49,9 @@ export default function Navbar(props) {
                     alignItems: "center",
                   }}
                 ></div>
-                <p className="my-2 mx-2 " style={{color:"black"}}>RED</p>
+                <p className="my-2 mx-2 " style={{ color: "black" }}>
+                  RED
+                </p>
               </div>
             </li>
             <li
@@ -66,7 +59,8 @@ export default function Navbar(props) {
                 display: "flex",
                 alignItems: "center",
                 marginLeft: "20px",
-              }} onClick={props.blueChange}
+              }}
+              onClick={props.blueChange}
             >
               <div style={{ display: "flex", alignItems: "center" }}>
                 <div
@@ -79,7 +73,9 @@ export default function Navbar(props) {
                     alignItems: "center",
                   }}
                 ></div>
-                <p className="my-2 mx-2" style={{color:"black"}}>BLUE</p>
+                <p className="my-2 mx-2" style={{ color: "black" }}>
+                  BLUE
+                </p>
               </div>
             </li>
             <li
@@ -87,7 +83,8 @@ export default function Navbar(props) {
                 display: "flex",
                 alignItems: "center",
                 marginLeft: "20px",
-              }} onClick={props.greenChange}
+              }}
+              onClick={props.greenChange}
             >
               <div style={{ display: "flex", alignItems: "center" }}>
                 <div
@@ -100,7 +97,9 @@ export default function Navbar(props) {
                     alignItems: "center",
                   }}
                 ></div>
-                <p className="my-2 mx-2" style={{color:"black"}}>GREEN</p>
+                <p className="my-2 mx-2" style={{ color: "black" }}>
+                  GREEN
+                </p>
               </div>
             </li>
           </ul>
